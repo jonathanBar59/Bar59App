@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bar-App Prototyp</title>
+<style>
+body{font-family:Arial,sans-serif;margin:20px;background:#f5f5f5}
+.card{background:white;padding:16px;border-radius:10px;margin:12px 0;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+button{width:100%;padding:14px;font-size:18px;margin-top:8px}
+input,select{width:100%;padding:10px;margin:6px 0}
+</style>
+</head>
+<body>
+<h2>🍸 Bar-App Prototyp</h2>
+
+<div class="card">
+<h3>🍺 Getränk deklarieren</h3>
+<select id="drink">
+<option>Bier</option>
+<option>Cola</option>
+<option>Wein</option>
+<option>Cocktail</option>
+</select>
+<input id="qty" type="number" value="1" min="1">
+<button onclick="saveDrink()">Speichern</button>
+<p id="drinkMsg"></p>
+</div>
+
+<div class="card">
+<h3>📅 Verfügbarkeit</h3>
+<input id="date" type="date">
+<input id="from" type="time">
+<input id="to" type="time">
+<button onclick="saveAvail()">Verfügbarkeit speichern</button>
+<p id="availMsg"></p>
+</div>
+
+<script>
+function saveDrink(){
+ document.getElementById('drinkMsg').textContent =
+   "Gespeichert: " + document.getElementById('qty').value + " × " + document.getElementById('drink').value;
+}
+function saveAvail(){
+ document.getElementById('availMsg').textContent =
+   "Verfügbarkeit gespeichert: " + document.getElementById('date').value + " " +
+   document.getElementById('from').value + " - " + document.getElementById('to').value;
+}
+</script>
+</body>
+</html>
